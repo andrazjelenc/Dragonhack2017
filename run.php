@@ -7,7 +7,7 @@
 //config
 $db['host'] = 'localhost';
 $db['user'] = 'root';
-$db['pass'] = 'toor';
+$db['pass'] = '';
 $db['db']   = 'dragonhack';
 
 //connect to database
@@ -20,11 +20,14 @@ $PDO = new PDO('mysql:dbname='.$db['db'].';host='.$db['host'],
  */
 
  //todo: beri request
-$userInput = '0.40;1,-1,1,-1;1,1,0';
+//$userInput = '0.40;1,-1,1,-1;1,1,0';
+$userInput = $_REQUEST['data'];
 
 $splittedInput = explode(';', $userInput);
 
-$razmerje = $splittedInput[0];
+//var_dump($splittedInput);
+//die;
+$razmerje = $splittedInput[0]/100;
 
 $flags_izvedba = explode(',', $splittedInput[1]);
 $flags_podrocje = explode(',', $splittedInput[2]);
@@ -56,7 +59,7 @@ foreach($predmet_ids as $predmet_id)
 $outputStream = '';
 foreach($points_skupaj as $predmet_id => $factor)
 {
-	$outputStream .= $factor . ',';
+	$outputStream .= $predmet_id . ':' .$factor . ',';
 }
 $outputStream = substr($outputStream, 0, -1);
 
@@ -100,7 +103,7 @@ function get_points($table, $userFlags, $PDO)
 	}
 
 	//var_dump($data);
-
+	//die;
 	/**
 	 *	COMPARISON
 	 */
@@ -122,29 +125,21 @@ function get_points($table, $userFlags, $PDO)
 
 		for($i = 0; $i < count($flags); $i++)
 		{
-			if($userFlags[$i] == 0)
-			{
-				//we don't care about this flag
-				continue;
-			}
-			else if($userFlags[$i] == $flags[$i])
-			{
-				//it's ok
-				continue;
-			}
-			else if($userFlags[$i] == -1 && $flags[$i] == 1)
+			//echo $userFlags[$i]." ".$flags[$i]."\r\n";
+
+			if($userFlags[$i] == -1 && $flags[$i] == 1)
 			{
 				//i don't want, but the course has it
 				$factor += 5;
 			}
-			else if($userFlags[$i] == 1 && $flags[$i] == -1)
+			else if($userFlags[$i] == 1 && $flags[$i] == 0)
 			{
 				//i want, but the course doesn't have iterator_apply
 				$factor += 3;
 			}
 			else
 			{
-				echo "NAPAKA 3";
+				continue;
 			}
 		}
 		

@@ -70,8 +70,8 @@ else
 {
 	echo "NAPAKA 2";
 }
-var_dump($znacke_vsebina);
-die();
+//var_dump($znacke_vsebina);
+//die();
 /**
  *	PODATKI O PREDMETIH
  */
@@ -86,6 +86,7 @@ SELECT p.id_predmet as id_predmet,
         m.naziv as modul,
         n.naziv as nosilec,
         n.link as nosilec_link,
+        p.predmet_link as predmet_link,
         zi.*,
         zv.*
 	FROM `predmet` p
@@ -116,7 +117,7 @@ if ($query->rowCount() > 0)
 				$predmet_id = $podatek;
 			}
 			else if($key == 'naziv' || $key == 'semester' || $key == 'kvaliteta' ||
-					$key == 'modul' || $key == 'nosilec' || $key == 'nosilec_link')
+					$key == 'modul' || $key == 'nosilec' || $key == 'nosilec_link' || $key == 'predmet_link')
 			{
 				$p[$key] = $podatek;
 			}
@@ -137,7 +138,7 @@ if ($query->rowCount() > 0)
 		//die();
 		$podatki[$predmet_id] = $p;
 	}
-	var_dump($podatki);
+	//var_dump($podatki);
 }
 else
 {
