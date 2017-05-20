@@ -1,1 +1,340 @@
+html {
+	overflow: hidden;
+}
+.header {
+	width: 100%;
+	height: 70px;
+	background-color: #ebebe3;
+	color: #000000;
+	font-size: 35px;
+	font-weight: bold;
+	text-align: center;
+	display: block;
+}
+.header .content {
+	display: block;
+	width: auto;
+	height: 100px;
+	margin: 0 auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	vertical-align: middle;
+	text-align: center;
+}
+.main {
+	display: block;
+	width: 100%;
+	height: calc(100vh - 70px);
+	margin: 0 auto;
+	background: rgba(235, 235, 227, 0.4);
+}
+.main .half1 {
+	width: 40%;
+	display: inline-block;
+	height: 100%;
+	vertical-align: top;
+}
+.main .half1 .inside {
+	padding: 50px;
+	display: block;
+	margin: 0 auto;
+}
+.main .half1 .inside .razmerje {
+	width: 500px;
+	display: block;
+	margin: 0 auto;
+}
+.main .half1 .inside .razmerje .title {
+	width: 500px;
+	text-align: center;
+}
+.main .half1 .inside .razmerje .slider {
+	width: 500px;
+	text-align: center;
+}
+.main .half1 .inside .one {
+	width: 300px;
+	height: 20px;
+	display: block;
+	margin: 0 auto;
+	padding-top: 10px;
+}
+.main .line {
+	width: 2px;
+	height: 100%;
+	height: calc(100vh - 100px);
+	background-color: #ec971f;
+	display: inline-block;
+}
+.main .half2 {
+	width: calc(60% - 11px);
+	display: inline-block;
+	height: 100%;
+	overflow-y: scroll;
+}
+.main .half1 .inside .top {
+	display: table;
+	width: 300px;
+	border: none;
+	margin: 0 auto;
+	padding-top: 10px;
+}
+.main .half1 .inside .top .cell:first-child {
+	text-align: left;
+}
+.main .half1 .inside .top .cell:last-child {
+	text-align: right;
+}
+.main .half1 .inside .one .title {
+	text-align: center;
+	width: 300px;
+	display: block;
+}
+.main .half1 .inside .one .slider {
+	display: block;
+	width: 300px;
+	margin-top: -8px;
+}
+.main .half1 .inside .top .cell {
+	display: table-cell;
+	width: 50px;
+	text-align: center;
+}
+.main .half1 .inside .prikaz {
+	display: block;
+	width: 300px;
+}
+.main .half1 .inside .showable {
+	width: 300px;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+}
+#prva_polovica {
+	display: none;
+}
+#druga_polovica {
+	display: none;
+}
 
+.main .half2 .inside {
+	width: 100%;
+	height: auto;
+	padding: 20px;
+	display: block;
+}
+.main .half2 .inside .one {
+	display: block;
+	width: calc(100% - 40px);
+	min-height: 100px;
+	height: auto;
+	margin: 20px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding: 20px;
+	position: relative;
+}
+.main .half2 .inside .one a.tit {
+	font-size: 25px;
+	color: #0275d8 !important;
+}
+.main .half2 .inside .one h3 {
+	font-size: 20px;
+}
+.main .half2 .inside .one a.tit:hover {
+	color: #f0ad4e !important;
+}
+.main .half2 .inside .one .zastavice {
+	display: block;
+	padding-top: 10px;
+}
+.main .half2 .inside .one .flag {
+	width: auto;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	height: 35px;
+	padding: 5px 10px;
+	display: inline-block;
+	background-color: #ccffcc;
+	border-radius: 5px;
+}
+.main .half2 .inside .one .sum {
+	position: absolute;
+	display: block;
+	width: 50px;
+	height: 30px;
+	padding: 5px;
+	background: #ebebe3;
+	right: 10px;
+	top: 10px;
+}
+
+/*
+	RAZMERJE SLIDER
+*/
+.main .half1 .inside .one input[type=range] {
+  /*removes default webkit styles*/
+  -webkit-appearance: none;
+  /*fix for FF unable to apply focus style bug */
+  border: none;
+  /*required for proper track sizing in FF*/
+  width: 300px;
+}
+.main .half1 .inside .one input[type=range]::-webkit-slider-runnable-track {
+  width: 300px;
+  height: 5px;
+  background: #37ABC8;
+  border: none;
+  border-radius: 3px;
+}
+.main .half1 .inside .one input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ec971f;
+  margin-top: -4px;
+}
+.main .half1 .inside .one input[type=range]:focus {
+  outline: none;
+}
+.main .half1 .inside .one input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #37ABC8;
+}
+.main .half1 .inside .one input[type=range]::-moz-range-track {
+  width: 300px;
+  height: 5px;
+  background: #37ABC8;
+  border: none;
+  border-radius: 3px;
+}
+.main .half1 .inside .one input[type=range]::-moz-range-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ec971f;
+}
+/*hide the outline behind the border*/
+.main .half1 .inside .one input[type=range]:-moz-focusring {
+  outline: 1px solid white;
+  outline-offset: -1px;
+}
+.main .half1 .inside .one input[type=range]::-ms-track {
+  width: 300px;
+  height: 5px;
+  /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+  background: transparent;
+  /*leave room for the larger thumb to overflow with a transparent border */
+  border-color: transparent;
+  border-width: 6px 0;
+  /*remove default tick marks*/
+  color: transparent;
+}
+.main .half1 .inside .one input[type=range]::-ms-fill-lower {
+  background: #FFA500;
+  border-radius: 10px;
+}
+.main .half1 .inside .one input[type=range]::-ms-fill-upper {
+  background: #008000;
+  border-radius: 10px;
+}
+.main .half1 .inside .one input[type=range]::-ms-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ec971f;
+}
+.main .half1 .inside .one input[type=range]:focus::-ms-fill-lower {
+  background: #FFA500;
+}
+.main .half1 .inside .one input[type=range]:focus::-ms-fill-upper {
+  background: #008000;
+}
+
+/*
+	RAZMERJE SLIDER
+*/
+.main .half1 .inside .razmerje input[type=range] {
+  /*removes default webkit styles*/
+  -webkit-appearance: none;
+  /*fix for FF unable to apply focus style bug */
+  border: none;
+  /*required for proper track sizing in FF*/
+  width: 500px;
+}
+.main .half1 .inside .razmerje input[type=range]::-webkit-slider-runnable-track {
+  width: 500px;
+  height: 5px;
+  background: #37ABC8;
+  border: none;
+  border-radius: 3px;
+}
+.main .half1 .inside .razmerje input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ec971f;
+  margin-top: -4px;
+}
+.main .half1 .inside .razmerje input[type=range]:focus {
+  outline: none;
+}
+.main .half1 .inside .razmerje input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #37ABC8;
+}
+.main .half1 .inside .razmerje input[type=range]::-moz-range-track {
+  width: 500px;
+  height: 5px;
+  background: #37ABC8;
+  border: none;
+  border-radius: 3px;
+}
+.main .half1 .inside .razmerje input[type=range]::-moz-range-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ec971f;
+}
+/*hide the outline behind the border*/
+.main .half1 .inside .razmerje input[type=range]:-moz-focusring {
+  outline: 1px solid white;
+  outline-offset: -1px;
+}
+.main .half1 .inside .razmerje input[type=range]::-ms-track {
+  width: 500px;
+  height: 5px;
+  /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+  background: transparent;
+  /*leave room for the larger thumb to overflow with a transparent border */
+  border-color: transparent;
+  border-width: 6px 0;
+  /*remove default tick marks*/
+  color: transparent;
+}
+.main .half1 .inside .razmerje input[type=range]::-ms-fill-lower {
+  background: #37ABC8;
+  border-radius: 10px;
+}
+.main .half1 .inside .razmerje input[type=range]::-ms-fill-upper {
+  background: #37ABC8;
+  border-radius: 10px;
+}
+.main .half1 .inside .razmerje input[type=range]::-ms-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ec971f;
+}
+.main .half1 .inside .razmerje input[type=range]:focus::-ms-fill-lower {
+  background: #37ABC8;
+}
+.main .half1 .inside .razmerje input[type=range]:focus::-ms-fill-upper {
+  background: #37ABC8;
+}
