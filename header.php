@@ -14,6 +14,6 @@
 	<body>
 		<header class="header">
 			<div class="content">
-				ch00se.tech
+				WE CHOOSE FOR YOU - ch00se.tech
 			</div>
 		</header>

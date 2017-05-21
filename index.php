@@ -4,9 +4,6 @@
 	<div class="half1">
 		<div class="inside">
 			<div class="razmerje">
-				<div class="title">
-					RAZMERJE MED IZVEDBO IN VSEBINO
-				</div>
 				<div class="top" style="margin-bottom:-8px; color:#f0ad4e; font-weight:bold;">
 					<div class="cell">IZVEDBA</div>
 					<div class="cell">VSEBINA</div>
@@ -16,24 +13,24 @@
 				</div>
 			</div>
 			<br />
-			<br />
 
 			<div class="showable">
 				<button id="prva_polovica_btn" style="float:left;" class="btn btn-info" data-toggle="collapse" onclick="prikaz('prva_polovica')">Izvedba</button>
-				<button id="druga_polovica_btn" style="float:right;" class="btn btn-info" data-toggle="collapse" onclick="prikaz('druga_polovica')">Vsebina</button>
+				<button id="druga_polovica_btn" style="float:right;" class="btn btn-warning" data-toggle="collapse" onclick="prikaz('druga_polovica')">Vsebina</button>
 				<div style="clear:both; float:none;"></div>
 			</div>
 			<div style="padding-top:10px;"></div>
 			
-			<div class="top">
-				<div class="cell">NE</div>
-				<div class="cell">?</div>
-				<div class="cell">DA</div>
+			<div class="top1">
+				<div class="inside">
+					<div class="cell" style="color:#FF0000;">NE</div>
+					<div class="cell" style="color:#008000;">DA</div>
+				</div>
 			</div>
 
 			<div id="prva_polovica">
 				<?php for ($i = 0; $i < count($znacke_izvedba); $i++):?>
-				<div id="first" class="one">
+				<div id="first<?php echo $i;?>" class="one">
 					<div class="title">
 						<?php echo $znacke_izvedba[$i];?>
 					</div>
@@ -46,7 +43,7 @@
 
 			<div id="druga_polovica">
 				<?php for ($i = 0; $i < count($znacke_vsebina); $i++):?>
-				<div id="first" class="one">
+				<div id="second<?php echo $i;?>" class="one">
 					<div class="title">
 						<?php echo $znacke_vsebina[$i];?>
 					</div>
@@ -68,12 +65,11 @@
 				<div class="sum"></div>
 				<a class="tit" href="<?php echo $predmet_data['predmet_link'];?>" target="_blank"><?php echo $predmet_data['naziv']?></a>
 				<h3>Modul: <?php echo $predmet_data['modul'];?></h3>
-				<h3>Nosilec: <a target="_blank" href="<?php echo $predmet_data['nosilec_link'];?>"><?php echo $predmet_data['nosilec'];?></a></h3>
-				<h4 style="font-size:16px; margin-bottom:1px;">Zadovoljstvo: </h4>
-				<div class="progress" style="display:inline-block; width:80%;">
+				<h3>Nosilec: <a style="font-size:20px;" class="tit" target="_blank" href="<?php echo $predmet_data['nosilec_link'];?>"><?php echo $predmet_data['nosilec'];?></a></h3>
+				<h4 style="font-size:16px; margin-bottom:1px; display:inline;">Zadovoljstvo: </h4>
+				<div class="progress" style="display:inline-block; width:25%; margin-left:10px; margin-bottom:-3px;">
 					<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $predmet_data['kvaliteta']?>" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $predmet_data['kvaliteta']?>%"></div>
 				</div>
-				<div style="display:inline;"><?php echo $predmet_data['kvaliteta']?>%</div>
 				<div class="zastavice">
 					<?php foreach ($predmet_data['znacke'] as $zastavica):?>
 						<div class="flag">

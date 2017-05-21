@@ -42,6 +42,7 @@ $points_skupaj = array();
 
 $predmet_ids = array_keys($points_izvedba);
 
+$max = 0;
 foreach($predmet_ids as $predmet_id)
 {
 	$total = $razmerje * $points_izvedba[$predmet_id] + 
@@ -49,6 +50,23 @@ foreach($predmet_ids as $predmet_id)
 	$total = round($total,1);
 	
 	$points_skupaj[$predmet_id] = $total;
+	if ($total > $max)
+	{
+		$max = $total;
+	}
+}
+
+foreach ($points_skupaj as $key => $value)
+{
+	if ($max == 0)
+	{
+		$points_skupaj[$key] = 0;
+	}
+	else
+	{
+		$points_skupaj[$key] = round($value * 100 / $max);
+	}
+
 }
 
 //var_dump($points_skupaj);
