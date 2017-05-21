@@ -1,2 +1,2 @@
-# Dragohhack2017
-...
+# Dragonhack2017
+Our project for Dragonhack hackaton in Ljubljana, SI
