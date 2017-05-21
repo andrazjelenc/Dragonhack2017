@@ -1,5 +1,6 @@
 html {
 	overflow: hidden;
+	font-family: 'Lato-Regular' !important;
 }
 .header {
 	width: 100%;
@@ -12,14 +13,16 @@ html {
 	display: block;
 }
 .header .content {
+	font-family: 'NotoSerif-Regular' !important;
 	display: block;
 	width: auto;
-	height: 100px;
+	height: 70px;
 	margin: 0 auto;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	vertical-align: middle;
 	text-align: center;
+	font-weight: bold;
 }
 .main {
 	display: block;
@@ -27,6 +30,7 @@ html {
 	height: calc(100vh - 70px);
 	margin: 0 auto;
 	background: rgba(235, 235, 227, 0.4);
+	font-family: 'Lato-Regular' !important;
 }
 .main .half1 {
 	width: 40%;
@@ -35,29 +39,104 @@ html {
 	vertical-align: top;
 }
 .main .half1 .inside {
-	padding: 50px;
+	padding: 25px 50px 50px 50px;
 	display: block;
 	margin: 0 auto;
 }
 .main .half1 .inside .razmerje {
-	width: 500px;
+	width: 250px;
 	display: block;
 	margin: 0 auto;
 }
-.main .half1 .inside .razmerje .title {
-	width: 500px;
-	text-align: center;
+.main .half1 .inside .razmerje .top {
+	display: table;
+	width: 200px;
+	border: none;
+	margin: 0 auto;
+	padding-top: 10px;
 }
 .main .half1 .inside .razmerje .slider {
-	width: 500px;
+	width: 250px;
 	text-align: center;
 }
 .main .half1 .inside .one {
-	width: 300px;
-	height: 20px;
+	width: 405px;
+	height: auto;
 	display: block;
 	margin: 0 auto;
 	padding-top: 10px;
+	text-align: center;
+}
+.main .half1 .inside .one:first-child {
+	padding-top: 0;
+}
+.main .half1 .inside .top1 {
+	display: block;
+	width: 405px;
+	height: 40px;
+	border: none;
+	margin: 0 auto;
+	padding-top: 10px;
+}
+.main .half1 .inside .top1 .inside {
+	width: 170px;
+	display: table;
+	padding: 0;
+	float: right;
+}
+.main .half1 .inside .top .cell:first-child, .main .half1 .inside .top1 .inside .cell:first-child {
+	text-align: left;
+}
+.main .half1 .inside .top .cell:last-child {
+	text-align: right;
+}
+.main .half1 .inside .top1 .inside .cell:last-child {
+	text-align: left;
+}
+.main .half1 .inside .one .title {
+	text-align: center;
+	width: 220px;
+	display: inline-block;
+	text-align: right;
+}
+.main .half1 .inside .one .slider {
+	display: inline-block;
+	width: 180px;
+	padding-left: 15px;
+	margin-top: -8px;
+	text-align: left;
+}
+.main .half1 .inside .top .cell {
+	display: table-cell;
+	width: 50px;
+	text-align: center;
+}
+.main .half1 .inside .top1 .inside .cell {
+	display: table-cell;
+	width: 50%;
+	text-align: center;
+}
+.main .half1 .inside .prikaz {
+	display: block;
+	width: 300px;
+}
+.main .half1 .inside .showable {
+	width: 200px;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+}
+#prva_polovica, #druga_polovica {
+	display: none;
+	overflow-y: scroll;
+	max-height: calc(100vh - 260px);
+	height: auto;
+}
+#druga_polovica {
+	display: block;
+}
+#prva_polovica::-webkit-scrollbar, #druga_polovica::-webkit-scrollbar {
+	display: none;
 }
 .main .line {
 	width: 2px;
@@ -67,56 +146,11 @@ html {
 	display: inline-block;
 }
 .main .half2 {
-	width: calc(60% - 11px);
+	width: calc(60% - 12px);
 	display: inline-block;
 	height: 100%;
 	overflow-y: scroll;
 }
-.main .half1 .inside .top {
-	display: table;
-	width: 300px;
-	border: none;
-	margin: 0 auto;
-	padding-top: 10px;
-}
-.main .half1 .inside .top .cell:first-child {
-	text-align: left;
-}
-.main .half1 .inside .top .cell:last-child {
-	text-align: right;
-}
-.main .half1 .inside .one .title {
-	text-align: center;
-	width: 300px;
-	display: block;
-}
-.main .half1 .inside .one .slider {
-	display: block;
-	width: 300px;
-	margin-top: -8px;
-}
-.main .half1 .inside .top .cell {
-	display: table-cell;
-	width: 50px;
-	text-align: center;
-}
-.main .half1 .inside .prikaz {
-	display: block;
-	width: 300px;
-}
-.main .half1 .inside .showable {
-	width: 300px;
-	margin: 0 auto;
-	display: block;
-	text-align: center;
-}
-#prva_polovica {
-	display: none;
-}
-#druga_polovica {
-	display: none;
-}
-
 .main .half2 .inside {
 	width: 100%;
 	height: auto;
@@ -137,12 +171,14 @@ html {
 .main .half2 .inside .one a.tit {
 	font-size: 25px;
 	color: #0275d8 !important;
-}
-.main .half2 .inside .one h3 {
-	font-size: 20px;
+	text-decoration: none !important;
 }
 .main .half2 .inside .one a.tit:hover {
 	color: #f0ad4e !important;
+	text-decoration: none !important;
+}
+.main .half2 .inside .one h3 {
+	font-size: 20px;
 }
 .main .half2 .inside .one .zastavice {
 	display: block;
@@ -161,40 +197,40 @@ html {
 .main .half2 .inside .one .sum {
 	position: absolute;
 	display: block;
-	width: 50px;
+	width: 55px;
 	height: 30px;
-	padding: 5px;
+	padding: 4px 5px;
 	background: #ebebe3;
 	right: 10px;
 	top: 10px;
+	text-align: center;
+	color: #ffffff;
 }
 
-/*
-	RAZMERJE SLIDER
-*/
+/* OSTALO SLIDER */
 .main .half1 .inside .one input[type=range] {
   /*removes default webkit styles*/
   -webkit-appearance: none;
   /*fix for FF unable to apply focus style bug */
   border: none;
   /*required for proper track sizing in FF*/
-  width: 300px;
+  width: 100px;
 }
 .main .half1 .inside .one input[type=range]::-webkit-slider-runnable-track {
-  width: 300px;
-  height: 5px;
+  width: 100px;
+  height: 8px;
   background: #37ABC8;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .main .half1 .inside .one input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: none;
-  height: 16px;
-  width: 16px;
+  height: 21px;
+  width: 21px;
   border-radius: 50%;
   background: #ec971f;
-  margin-top: -4px;
+  margin-top: -6px;
 }
 .main .half1 .inside .one input[type=range]:focus {
   outline: none;
@@ -203,16 +239,16 @@ html {
   background: #37ABC8;
 }
 .main .half1 .inside .one input[type=range]::-moz-range-track {
-  width: 300px;
-  height: 5px;
+  width: 100px;
+  height: 8px;
   background: #37ABC8;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .main .half1 .inside .one input[type=range]::-moz-range-thumb {
   border: none;
-  height: 16px;
-  width: 16px;
+  height: 21px;
+  width: 21px;
   border-radius: 50%;
   background: #ec971f;
 }
@@ -222,8 +258,8 @@ html {
   outline-offset: -1px;
 }
 .main .half1 .inside .one input[type=range]::-ms-track {
-  width: 300px;
-  height: 5px;
+  width: 100px;
+  height: 8px;
   /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
   background: transparent;
   /*leave room for the larger thumb to overflow with a transparent border */
@@ -242,8 +278,8 @@ html {
 }
 .main .half1 .inside .one input[type=range]::-ms-thumb {
   border: none;
-  height: 16px;
-  width: 16px;
+  height: 21px;
+  width: 21px;
   border-radius: 50%;
   background: #ec971f;
 }
@@ -254,32 +290,30 @@ html {
   background: #008000;
 }
 
-/*
-	RAZMERJE SLIDER
-*/
+/* RAZMERJE SLIDER */
 .main .half1 .inside .razmerje input[type=range] {
   /*removes default webkit styles*/
   -webkit-appearance: none;
   /*fix for FF unable to apply focus style bug */
   border: none;
   /*required for proper track sizing in FF*/
-  width: 500px;
+  width: 250px;
 }
 .main .half1 .inside .razmerje input[type=range]::-webkit-slider-runnable-track {
-  width: 500px;
-  height: 5px;
+  width: 250px;
+  height: 8px;
   background: #37ABC8;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .main .half1 .inside .razmerje input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: none;
-  height: 16px;
-  width: 16px;
+  height: 21px;
+  width: 21px;
   border-radius: 50%;
   background: #ec971f;
-  margin-top: -4px;
+  margin-top: -6px;
 }
 .main .half1 .inside .razmerje input[type=range]:focus {
   outline: none;
@@ -288,16 +322,16 @@ html {
   background: #37ABC8;
 }
 .main .half1 .inside .razmerje input[type=range]::-moz-range-track {
-  width: 500px;
-  height: 5px;
+  width: 250px;
+  height: 8px;
   background: #37ABC8;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .main .half1 .inside .razmerje input[type=range]::-moz-range-thumb {
   border: none;
-  height: 16px;
-  width: 16px;
+  height: 21px;
+  width: 21px;
   border-radius: 50%;
   background: #ec971f;
 }
@@ -307,8 +341,8 @@ html {
   outline-offset: -1px;
 }
 .main .half1 .inside .razmerje input[type=range]::-ms-track {
-  width: 500px;
-  height: 5px;
+  width: 250px;
+  height: 8px;
   /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
   background: transparent;
   /*leave room for the larger thumb to overflow with a transparent border */
@@ -327,8 +361,8 @@ html {
 }
 .main .half1 .inside .razmerje input[type=range]::-ms-thumb {
   border: none;
-  height: 16px;
-  width: 16px;
+  height: 21px;
+  width: 21px;
   border-radius: 50%;
   background: #ec971f;
 }
@@ -337,4 +371,14 @@ html {
 }
 .main .half1 .inside .razmerje input[type=range]:focus::-ms-fill-upper {
   background: #37ABC8;
+}
+
+/* IMPORT FONTS */
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url('../fonts/Lato-Regular.ttf');
+}
+@font-face {
+    font-family: 'NotoSerif-Regular';
+    src: url('../fonts/NotoSerif-Regular.ttf');
 }
