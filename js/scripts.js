@@ -5,11 +5,7 @@ jQuery( document ).ready(function( $ ) {
 });
 
 function prikaz (which) {
-	if (jQuery("#" + which).is(':visible')) {
-		jQuery("#" + which).stop(false, false).fadeOut();
-		jQuery("#" + which + "_btn").attr('class', 'btn btn-info');
-	}
-	else if (jQuery("#prva_polovica").is(":visible") && which != "prva_polovica") {
+	if (jQuery("#prva_polovica").is(":visible") && which != "prva_polovica") {
 		jQuery("#prva_polovica").stop(false, false).fadeOut();
 		jQuery("#prva_polovica_btn").attr('class', 'btn btn-info');
 		jQuery("#druga_polovica_btn").attr('class', 'btn btn-warning');
@@ -60,7 +56,17 @@ function sendVal() {
 	  	var data_splited = back_data.split(",");
 	  	for (var i = 0; i < data_splited.length; i++) {
 	  		var splited_alltheway = data_splited[i].split(":");
-	  		jQuery("#predmet"+splited_alltheway[0]+" .sum").text(splited_alltheway[1]);
+	  		var x = 100 - splited_alltheway[1]
+	  		jQuery("#predmet"+splited_alltheway[0]+" .sum").text(x + "%");
+	  		if (x > 75) {
+	  			jQuery("#predmet"+splited_alltheway[0]+" .sum").css({"background-color": "rgba(0, 128, 0, 0.7)"});
+	  		}
+	  		else if (x >= 50) {
+	  			jQuery("#predmet"+splited_alltheway[0]+" .sum").css({"background-color": "rgba(255, 152, 0, 0.83)"});
+	  		}
+	  		else {
+	  			jQuery("#predmet"+splited_alltheway[0]+" .sum").css({"background-color": "rgba(255, 0, 0, 0.7)"});
+	  		}
 	  	}
 	  	razvrsti(back_data);
 	  });
@@ -70,8 +76,8 @@ function sendVal() {
 function distribute(parts) {
 	var x = new Array();
 	for (i = 0; i < parts.length; i++) {
-		var idx = parts[i].indexOf("<div class=\"sum\">") + "<div class=\"sum\">".length;
-		var idx2 = parts[i].indexOf("</div>");
+		var idx = parts[i].indexOf(");\">") + ");\">".length;
+		var idx2 = parts[i].indexOf("%</div>");
 		var part_number = parts[i].substring(idx, idx2);
 		//console.log(part_number);
 		x[i] = [parts[i],part_number];
@@ -81,7 +87,8 @@ function distribute(parts) {
 }
 
 function compare(a, b) {
-	return a[1] - b[1];
+	//console.log(a[1]);
+	return b[1] - a[1];
 }
 
 function razvrsti() {
@@ -97,7 +104,14 @@ function razvrsti() {
 		str_join += str_distr[i][0];
 	}
 	str_join += "</div>";
-	jQuery("#half2").html(jQuery(str_join));
+
+	jQuery("#half2").stop(false, false).css({'opacity': '0'}).html(function (_, _) {
+        jQuery("#half2").html(jQuery(str_join));
+    }).animate({
+        opacity: 1
+    }, 250);
+
+	//jQuery("#half2").html(jQuery(str_join));
 }
 
 function split_html(str) {
